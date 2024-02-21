@@ -36,40 +36,35 @@
 <body>
 
 <script>
-	// Function to extract query parameters from the URL
-	function getQueryParam(name) {
-    	const urlParams = new URLSearchParams(window.location.search);
-    	return urlParams.get(name);
-	}
-
 	// Function to handle QR code redirection and tracking
-	function handleRedirect() {
-    	const qrCodeParam = getQueryParam('qrcode');
+function handleRedirect() {
+    const qrCodeParam = getQueryParam('qrcode');
 
-    	// Define mapping of QR codes to destination URLs
-    	const qrCodeMappings = {
-        	'code1': 'https://nsccapstone.github.io/page1.html',
-        	// Add more QR code mappings as needed
-    	};
+    console.log('QR Code Parameter:', qrCodeParam);  // Log the QR code parameter
 
-    	// Check if the QR code parameter is present and valid
-    	if (qrCodeParam && qrCodeMappings.hasOwnProperty(qrCodeParam)) {
-        	// Redirect to the corresponding URL
-        	window.location.href = qrCodeMappings[qrCodeParam];
+    // Define mapping of QR codes to destination URLs
+    const qrCodeMappings = {
+        'code1': 'https://nsccapstone.github.io/page1.html',
+        // Add more QR code mappings as needed
+    };
 
-        	// Track the QR code scan in Google Analytics
-        	gtag('event', 'QRCodeScan', {
-            	'event_category': 'QRCode',
-            	'event_label': qrCodeParam,
-        	});
-    	} else {
-        	// Handle invalid or missing QR code parameter
-        	console.error('Invalid QR code');
-    	}
-	}
+    // Check if the QR code parameter is present and valid
+    if (qrCodeParam && qrCodeMappings.hasOwnProperty(qrCodeParam)) {
+        // Redirect to the corresponding URL
+        console.log('Redirecting to:', qrCodeMappings[qrCodeParam]);  // Log the destination URL
+        window.location.href = qrCodeMappings[qrCodeParam];
 
-	// Call the handleRedirect function on page load
-	window.onload = handleRedirect;
+        // Track the QR code scan in Google Analytics
+        gtag('event', 'QRCodeScan', {
+            'event_category': 'QRCode',
+            'event_label': qrCodeParam,
+        });
+    } else {
+        // Handle invalid or missing QR code parameter
+        console.error('Invalid QR code');
+    }
+}
+
 </script>
 
 <p>Good click! Thumbs up for you!</p>
