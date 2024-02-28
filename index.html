@@ -36,26 +36,26 @@
 <body>
 
 <script>
-    // Function to extract query parameters from the URL
+    // Function to extract parameters from the URL
     function getQueryParam(name) {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get(name);
     }
 
-    // Function to handle QR code redirection and tracking
+    // Function to handle QR code redirection
     function handleRedirect() {
         const qrCodeParam = getQueryParam('qrcode');
 
         console.log('QR Code Parameter:', qrCodeParam);  // Log the QR code parameter
 
-        // Define mapping of QR codes to destination URLs
+        // mapping of QR codes to destination URLs
         const qrCodeMappings = {
             'code1': 'https://nsccapstone.github.io/page1.html',
             'code2': 'https://nsccapstone.github.io/page2.html',
             // Add more QR code mappings as needed
         };
 
-        // Check if the QR code parameter is present and valid
+        // Check if the QR code parameter is valid
         if (qrCodeParam && qrCodeMappings.hasOwnProperty(qrCodeParam)) {
             // Redirect to the corresponding URL
             console.log('Redirecting to:', qrCodeMappings[qrCodeParam]);  // Log the destination URL
