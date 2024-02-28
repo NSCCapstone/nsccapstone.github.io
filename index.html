@@ -37,12 +37,14 @@
 
 <script>
     // Function to extract parameters from the URL
+    console.log('1');
     function getQueryParam(name) {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get(name);
     }
 
     // Function to handle QR code redirection
+    console.log('2);
     function handleRedirect() {
         const qrCodeParam = getQueryParam('qrcode');
 
@@ -56,6 +58,7 @@
         };
 
         // Check if the QR code parameter is valid
+        console.log('3');
         if (qrCodeParam && qrCodeMappings.hasOwnProperty(qrCodeParam)) {
             // Redirect to the corresponding URL
             console.log('Redirecting to:', qrCodeMappings[qrCodeParam]);  // Log the destination URL
