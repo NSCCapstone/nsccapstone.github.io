@@ -59,13 +59,15 @@
         if (qrCodeParam && qrCodeMappings.hasOwnProperty(qrCodeParam)) {
             // Redirect to the corresponding URL
             console.log('Redirecting to:', qrCodeMappings[qrCodeParam]);  // Log the destination URL
-            window.location.href = qrCodeMappings[qrCodeParam];
 
-            // Track the QR code scan in Google Analytics
+            // Track the QR code scan in Google Analytics with custom dimension
             gtag('event', 'QRCodeScan', {
                 'event_category': 'QRCode',
                 'event_label': qrCodeParam,
+                'dimension1': qrCodeParam,  // Custom dimension for code1 or code2
             });
+
+            window.location.href = qrCodeMappings[qrCodeParam];
         } else {
             // Handle invalid or missing QR code parameter
             console.error('Invalid QR code');
