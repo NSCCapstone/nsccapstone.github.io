@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-S81HR4CPCK"></script>
+	<script>
+    	window.dataLayer = window.dataLayer || [];
+    	function gtag() {
+        	dataLayer.push(arguments);
+    	}
+    	gtag('js', new Date());
+    	gtag('config', 'G-S81HR4CPCK');
+	</script>
+    <meta charset="UTF-8">
+    <title>Page 1</title>
+    <style>
+        body {
+            font-family: ComicSans;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the test page</h1>
+    <p>Thanks for scanning!</p>
+</body>
+</html>
