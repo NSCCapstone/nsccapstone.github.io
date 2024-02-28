@@ -60,6 +60,9 @@
 
         // Check if the QR code parameter is valid
         console.log('3');
+        console.log(qrCodeParam);
+        console.log(qrCodeMappings.hasOwnProperty(qrCodeParam));
+        
         if (qrCodeParam && qrCodeMappings.hasOwnProperty(qrCodeParam)) {
             // Redirect to the corresponding URL
             console.log('Redirecting to:', qrCodeMappings[qrCodeParam]);  // Log the destination URL
