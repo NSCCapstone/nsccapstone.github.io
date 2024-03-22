@@ -10,6 +10,47 @@
     	}
     	gtag('js', new Date());
     	gtag('config', 'G-S81HR4CPCK');
+	<script>
+    function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
+    function handleRedirect() {
+        const qrCodeParam = getQueryParam('qrcode');
+
+        console.log('QR Code Parameter:', qrCodeParam);
+
+        const qrCodeMappings = {
+            'code0': 'https://nsccapstone.github.io/index.html',
+            'code14': 'https://nsccapstone.github.io/page1.html',
+            'code27': 'https://nsccapstone.github.io/page2.html',
+            'code17': 'https://nsccapstone.github.io/page3.html',
+            'code30': 'https://nsccapstone.github.io/page4.html',
+            'code69': 'https://nsccapstone.github.io/page5.html',
+            'code420': 'https://nsccapstone.github.io/page6.html',
+        };
+
+        console.log('Checking QR Code Parameter:', qrCodeMappings.hasOwnProperty(qrCodeParam));
+        
+        if (qrCodeParam && qrCodeMappings.hasOwnProperty(qrCodeParam)) {
+            console.log('Redirecting to:', qrCodeMappings[qrCodeParam]);
+
+            gtag('event', 'QRCodeScan', {
+                'event_category': 'QRCode',
+                'event_label': qrCodeParam,
+                'dimension1': qrCodeParam,
+            });
+
+            window.location.href = qrCodeMappings[qrCodeParam];
+        } else {
+            console.error('Invalid QR code');
+        }
+    }
+
+    window.onload = handleRedirect;
+</script>
+	
 	</script>
     <meta charset="UTF-8">
     <title>Page 4</title>
